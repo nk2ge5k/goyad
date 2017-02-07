@@ -1,0 +1,15 @@
+package adgroups
+
+type AdGroupFieldEnum string
+type MobileAppAdGroupFieldEnum string
+type DynamicTextAdGroupFieldEnum string
+type DynamicTextFeedAdGroupFieldEnum string
+type AdGroupTypesEnum string
+type AdGroupSubtypeEnum string
+type AdGroupStatusSelectionEnum string
+type AdGroupAppIconStatusSelectionEnum string
+type SourceProcessingStatusEnum string
+type SourceTypeGetEnum string
+type TargetDeviceTypeEnum string
+type TargetCarrierEnum string
+type AppAvailabilityStatusEnum string

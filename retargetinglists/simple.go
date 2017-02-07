@@ -1,0 +1,5 @@
+package retargetinglists
+
+type RetargetingListFieldEnum string
+type RetargetingListScopeEnum string
+type RetargetingListRuleOperatorEnum string

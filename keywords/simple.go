@@ -1,0 +1,5 @@
+package keywords
+
+type KeywordFieldEnum string
+type KeywordStateSelectionEnum string
+type KeywordStatusSelectionEnum string

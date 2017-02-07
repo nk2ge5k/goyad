@@ -1,0 +1,5 @@
+package ext
+
+type AdExtensionTypeEnum string
+type AdExtensionStateSelectionEnum string
+type AdExtensionStatusSelectionEnum string

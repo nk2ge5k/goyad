@@ -1,0 +1,4 @@
+package audiencettargets
+
+type AudienceTargetStateEnum string
+type AudienceTargetFieldEnum string
