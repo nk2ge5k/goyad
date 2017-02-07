@@ -10,15 +10,9 @@ import (
 )
 
 func main() {
+	client := goyad.NewClient(CLIENT_LOGIN, API_TOKEN)
 
-	tf := &[]campaigns.TextCampaignFieldEnum{
-		"BiddingStrategy",
-		"CounterIds",
-		"RelevantKeywords",
-		"Settings",
-	}
-
-	cs := campaigns.GetRequest{
+	request := campaigns.GetRequest{
 		FieldNames: []campaigns.CampaignFieldEnum{
 			"BlockedIps",
 			"ClientInfo",
@@ -43,13 +37,17 @@ func main() {
 			"TimeZone",
 			"Type",
 		},
-		TextCampaignFieldNames: tf,
+		TextCampaignFieldNames: &[]campaigns.TextCampaignFieldEnum{
+			"BiddingStrategy",
+			"CounterIds",
+			"RelevantKeywords",
+			"Settings",
+		}
 	}
-  
-	c := goyad.NewClient(CLIENT_LOGIN, API_TOKEN)
-	s := campaigns.New(&c)
+ 
+	service := campaigns.New(&clietn)
 
-	result, err := s.Get(cs);
+	result, err := s.Get(request);
 	// Do something
 }
 
