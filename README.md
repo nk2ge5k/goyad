@@ -49,7 +49,8 @@ func main() {
 	c := goyad.NewClient(CLIENT_LOGIN, API_TOKEN)
 	s := campaigns.New(&c)
 
-	if resul, err := s.Get(cs);
+	result, err := s.Get(cs);
+	// Do something
 }
 
 ```
