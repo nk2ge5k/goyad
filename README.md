@@ -47,7 +47,7 @@ func main() {
  
 	service := campaigns.New(&client)
 
-	result, err := s.Get(request);
+	result, err := service.Get(request);
 	// Do something
 }
 
