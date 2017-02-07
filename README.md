@@ -45,7 +45,7 @@ func main() {
 		}
 	}
  
-	service := campaigns.New(&clietn)
+	service := campaigns.New(&clienе)
 
 	result, err := s.Get(request);
 	// Do something
