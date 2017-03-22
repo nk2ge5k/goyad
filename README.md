@@ -1,16 +1,15 @@
-# goyad
-Yandex Direct API Go library (v5)
+# Yandex Direct API Go library (v5)
 
 # Basic usage 
 
 ```go
 import (
-	"github.com/nk2ge5k/goyad"
-	"github.com/nk2ge5k/goyad/campaigns"
+	api "github.com/nk2ge5k/yandex-direct-api-go"
+	"github.com/nk2ge5k/yandex-direct-api-go/campaigns"
 )
 
 func main() {
-	client := goyad.NewClient(CLIENT_LOGIN, API_TOKEN)
+	client := api.NewClient(CLIENT_LOGIN, API_TOKEN)
 
 	request := campaigns.GetRequest{
 		FieldNames: []campaigns.CampaignFieldEnum{
