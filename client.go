@@ -36,7 +36,8 @@ type ApiRequest struct {
 
 type ApiError struct {
 	RequestId   string `json:"request_id"`
-	ErrorCode   string `json:"error_code"`
+	ErrorCode   int    `json:"error_code"`
+	ErrorString string `json:"error_string"`
 	ErrorDetail string `json:"error_detail"`
 }
 
@@ -60,9 +61,10 @@ type Client struct {
 
 func (e ApiError) Error() string {
 	return fmt.Sprintf(
-		"Error (Request ID %v, Code %v): %v",
+		"Error (Request ID %v, Code %v): %v %v",
 		e.RequestId,
 		e.ErrorCode,
+		e.ErrorString,
 		e.ErrorDetail,
 	)
 }
@@ -97,24 +99,26 @@ func (c *Client) Do(s string, m string, p support.MappedObjectInterface) ([]byte
 
 			c.LastRequestId = resp.Header["Requestid"][0]
 
-			units := strings.Split(resp.Header["Units"][0], "/")
+			if nil != resp.Header["Units"] {
+				units := strings.Split(resp.Header["Units"][0], "/")
 
-			if v, err := strconv.Atoi(units[0]); err != nil {
-				return []byte{}, err
-			} else {
-				c.LastCallCost = v
-			}
+				if v, err := strconv.Atoi(units[0]); err != nil {
+					return []byte{}, err
+				} else {
+					c.LastCallCost = v
+				}
 
-			if v, err := strconv.Atoi(units[1]); err != nil {
-				return []byte{}, err
-			} else {
-				c.UnitsLeft = v
-			}
+				if v, err := strconv.Atoi(units[1]); err != nil {
+					return []byte{}, err
+				} else {
+					c.UnitsLeft = v
+				}
 
-			if v, err := strconv.Atoi(units[2]); err != nil {
-				return []byte{}, err
-			} else {
-				c.UnitsLimit = v
+				if v, err := strconv.Atoi(units[2]); err != nil {
+					return []byte{}, err
+				} else {
+					c.UnitsLimit = v
+				}
 			}
 
 			if res, err := ioutil.ReadAll(resp.Body); err != nil {
@@ -135,6 +139,7 @@ func (c *Client) Do(s string, m string, p support.MappedObjectInterface) ([]byte
 	}
 }
 
+// May be create without login and token
 func NewClient(login string, token string) Client {
 	return Client{
 		Login:    login,
