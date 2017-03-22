@@ -10,6 +10,7 @@ type AudienceTargetSelectionCriteria struct {
 	AdGroupIds         *[]int64                   `json:"AdGroupIds,omitempty"`
 	CampaignIds        *[]int64                   `json:"CampaignIds,omitempty"`
 	RetargetingListIds *[]int64                   `json:"RetargetingListIds,omitempty"`
+	InterestIds        *[]int64                   `json:"InterestIds,omitempty"`
 	States             *[]AudienceTargetStateEnum `json:"States,omitempty"`
 }
 
@@ -26,6 +27,7 @@ type AudienceTargetAddItem struct {
 
 	AdGroupId         int64  `json:"AdGroupId"`
 	RetargetingListId *int64 `json:"RetargetingListId,omitempty"`
+	InterestId        *int64 `json:"InterestId,omitempty"`
 }
 
 type AudienceTargetGetItem struct {
@@ -36,6 +38,7 @@ type AudienceTargetGetItem struct {
 	AdGroupId         *int64             `json:"AdGroupId,omitempty"`
 	CampaignId        *int64             `json:"CampaignId,omitempty"`
 	RetargetingListId *int64             `json:"RetargetingListId,omitempty"`
+	InterestId        *int64             `json:"InterestId,omitempty"`
 	State             *general.StateEnum `json:"State,omitempty"`
 }
 
