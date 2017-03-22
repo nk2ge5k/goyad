@@ -1,5 +1,5 @@
 # goyad
-Yande Direct API Go library (v5)
+Yandex Direct API Go library (v5)
 
 # Basic usage 
 
