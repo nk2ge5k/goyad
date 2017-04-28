@@ -140,10 +140,8 @@ func (c *Client) Do(s string, m string, p support.MappedObjectInterface) ([]byte
 }
 
 // May be create without login and token
-func NewClient(login string, token string) Client {
+func NewClient() Client {
 	return Client{
-		Login:    login,
-		Token:    Token{token},
 		ApiUrl:   API_URL,
 		Language: "ru",
 	}
